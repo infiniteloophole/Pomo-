@@ -1,0 +1,102 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="1024" height="1024">
+  <defs>
+    <clipPath id="sq">
+      <path d="M512 28 C680 28 748 28 832 112 C916 196 996 264 996 512 C996 760 916 828 832 912 C748 996 680 996 512 996 C344 996 276 996 192 912 C108 828 28 760 28 512 C28 264 108 196 192 112 C276 28 344 28 512 28Z"/>
+    </clipPath>
+    <linearGradient id="bg" x1="30%" y1="0%" x2="70%" y2="100%">
+      <stop offset="0%" stop-color="#8b5cf6"/>
+      <stop offset="50%" stop-color="#7c3aed"/>
+      <stop offset="100%" stop-color="#312e81"/>
+    </linearGradient>
+    <radialGradient id="topSheen" cx="50%" cy="8%" r="60%">
+      <stop offset="0%" stop-color="rgba(255,255,255,0.30)"/>
+      <stop offset="100%" stop-color="rgba(255,255,255,0)"/>
+    </radialGradient>
+    <radialGradient id="btmShadow" cx="50%" cy="92%" r="60%">
+      <stop offset="0%" stop-color="rgba(0,0,0,0.28)"/>
+      <stop offset="100%" stop-color="rgba(0,0,0,0)"/>
+    </radialGradient>
+    <radialGradient id="tom" cx="36%" cy="30%" r="68%">
+      <stop offset="0%" stop-color="#ff6b6b"/>
+      <stop offset="38%" stop-color="#ef4444"/>
+      <stop offset="100%" stop-color="#991b1b"/>
+    </radialGradient>
+    <radialGradient id="tomHL" cx="32%" cy="26%" r="38%">
+      <stop offset="0%" stop-color="rgba(255,255,255,0.58)"/>
+      <stop offset="100%" stop-color="rgba(255,255,255,0)"/>
+    </radialGradient>
+    <linearGradient id="leaf" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#86efac"/>
+      <stop offset="100%" stop-color="#15803d"/>
+    </linearGradient>
+    <filter id="tShadow">
+      <feDropShadow dx="0" dy="20" stdDeviation="30" flood-color="rgba(0,0,0,0.50)"/>
+    </filter>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="24" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <g clip-path="url(#sq)">
+    <!-- Background -->
+    <rect width="1024" height="1024" fill="url(#bg)"/>
+    <!-- Subtle texture blobs -->
+    <circle cx="180" cy="160" r="130" fill="rgba(255,255,255,0.05)"/>
+    <circle cx="860" cy="130" r="100" fill="rgba(255,255,255,0.04)"/>
+    <circle cx="140" cy="860" r="90"  fill="rgba(255,255,255,0.03)"/>
+    <circle cx="900" cy="900" r="120" fill="rgba(0,0,0,0.08)"/>
+    <!-- Top specular sheen (iOS glass) -->
+    <rect width="1024" height="1024" fill="url(#topSheen)"/>
+    <!-- Bottom depth -->
+    <rect width="1024" height="1024" fill="url(#btmShadow)"/>
+
+    <!-- Red glow halo -->
+    <ellipse cx="512" cy="600" rx="270" ry="240" fill="rgba(239,68,68,0.20)" filter="url(#glow)"/>
+
+    <!-- Tomato group -->
+    <g filter="url(#tShadow)">
+      <ellipse cx="512" cy="604" rx="298" ry="278" fill="url(#tom)"/>
+      <!-- Main specular glint -->
+      <ellipse cx="414" cy="488" rx="98" ry="74" fill="url(#tomHL)" transform="rotate(-20 414 488)"/>
+      <!-- Secondary rim light bottom-right -->
+      <ellipse cx="640" cy="820" rx="55" ry="20" fill="rgba(255,120,120,0.22)" transform="rotate(-8 640 820)"/>
+    </g>
+
+    <!-- Subtle rib shadows on tomato -->
+    <path d="M512 342 Q454 490 438 730" stroke="rgba(100,0,0,0.14)" stroke-width="5" fill="none"/>
+    <path d="M512 342 Q570 490 586 730" stroke="rgba(100,0,0,0.14)" stroke-width="5" fill="none"/>
+
+    <!-- STEM -->
+    <path d="M512 352 Q524 296 518 238" stroke="url(#leaf)" stroke-width="24" stroke-linecap="round" fill="none"/>
+
+    <!-- LEAVES -->
+    <!-- Left leaf -->
+    <path d="M512 348 C492 292 438 256 400 282 C424 272 462 304 512 348Z" fill="url(#leaf)"/>
+    <!-- Right leaf -->
+    <path d="M512 348 C532 292 586 256 624 282 C600 272 562 304 512 348Z" fill="url(#leaf)"/>
+    <!-- Small front leaf -->
+    <path d="M512 348 C508 298 522 262 524 232 C516 262 506 298 512 348Z" fill="#86efac"/>
+    <!-- Leaf veins -->
+    <path d="M512 342 Q468 288 424 278" stroke="rgba(255,255,255,0.35)" stroke-width="3" fill="none" stroke-linecap="round"/>
+    <path d="M512 342 Q558 288 600 278" stroke="rgba(255,255,255,0.35)" stroke-width="3" fill="none" stroke-linecap="round"/>
+
+    <!-- Plus badge (bottom-right corner, iOS-style) -->
+    <circle cx="736" cy="826" r="108" fill="rgba(0,0,0,0.30)"/>
+    <circle cx="736" cy="826" r="108" fill="rgba(255,255,255,0.14)"/>
+    <circle cx="736" cy="826" r="108" stroke="rgba(255,255,255,0.38)" stroke-width="2.5" fill="none"/>
+    <!-- + horizontal -->
+    <rect x="698" y="812" width="76" height="28" rx="14" fill="rgba(255,255,255,0.96)"/>
+    <!-- + vertical -->
+    <rect x="722" y="788" width="28" height="76" rx="14" fill="rgba(255,255,255,0.96)"/>
+
+    <!-- iOS top-edge highlight line -->
+    <path d="M210 36 Q512 10 814 36" stroke="rgba(255,255,255,0.22)" stroke-width="3" fill="none" stroke-linecap="round"/>
+    <!-- iOS bottom-edge shadow line -->
+    <path d="M210 988 Q512 1014 814 988" stroke="rgba(0,0,0,0.15)" stroke-width="3" fill="none" stroke-linecap="round"/>
+  </g>
+
+  <!-- Squircle border (iOS icon edge overlay) -->
+  <path d="M512 28 C680 28 748 28 832 112 C916 196 996 264 996 512 C996 760 916 828 832 912 C748 996 680 996 512 996 C344 996 276 996 192 912 C108 828 28 760 28 512 C28 264 108 196 192 112 C276 28 344 28 512 28Z"
+    fill="none" stroke="rgba(0,0,0,0.14)" stroke-width="4"/>
+</svg>
